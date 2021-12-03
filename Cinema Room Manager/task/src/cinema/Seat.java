@@ -1,14 +1,10 @@
 package cinema;
 
 public class Seat {
-    private final int row;
-    private final int seat;
     private final int price;
     private char mark;
 
-    Seat(int row, int seat, int price) {
-        this.row = row;
-        this.seat = seat;
+    Seat(int price) {
         this.price = price;
         this.mark = 'S';
     }
@@ -22,12 +18,16 @@ public class Seat {
         return String.valueOf(mark);
     }
 
-    public int book() {
-        this.setMark('B');
+    public int bookSeat() {
+        mark = 'B';
         return price;
     }
 
-    private void setMark(char b) {
-        this.mark = b;
+    public char getMark() {
+        return mark;
+    }
+
+    public boolean isSeatAvailable() {
+        return 'S' == mark;
     }
 }
